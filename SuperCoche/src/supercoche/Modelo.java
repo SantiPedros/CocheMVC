@@ -41,14 +41,18 @@ public class Modelo {
         gas.setX((int)(Math.random()*ALTOGAME-50));
     }
     public void comprobar(){
-        if(coche.getX()-her.getX()<100 && coche.getY()-her.getY()<100){
+        if(Math.abs(coche.puntoMedioX()-her.puntoMedioX())<50 && Math.abs(coche.puntoMedioY()-her.puntoMedioY())<20){
             contador++;
             this.cambiarPosicionHerramientas();
         }
-        if(coche.getX()-gas.getX()<100 && coche.getY()-gas.getY()<100){
+        if(Math.abs(coche.puntoMedioX()-gas.puntoMedioX())<50 && Math.abs(coche.puntoMedioY()-gas.puntoMedioY())<20){
             contador+=10;
-            this.cambiarPosicionGasolina();
+            int tecla=0;//Hay que modificar esto
+            this.dejarQuieto(tecla);
         }
+    }
+    public void dejarQuieto(int tecla){
+        
     }
     public Coche getCoche() {
         return coche;

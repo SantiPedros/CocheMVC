@@ -35,12 +35,17 @@ public class Herramientas {
         }
         return imagen;
     }    
-
+    public int puntoMedioX(){
+        return (x+ancho/2);
+    }
+    public int puntoMedioY(){
+        return (y+alto/2);
+    }
     public Image getImgHerramientas() {
         return imgHerramientas;
     }
     public void dibujar(Graphics g){
-        g.drawImage(imgHerramientas,20,20,alto,ancho,null);
+        g.drawImage(imgHerramientas,x,y,alto,ancho,null);
     }
     public void setX(int x) {
         this.x= x;

@@ -20,7 +20,7 @@ import static supercoche.Modelo.ANCHOGAME;
 public class Coche {
     private Image imgCoche;
     private int ancho=100;
-    private int alto=100;
+    private int alto=80;
     private int x;
     private int y;
 
@@ -44,7 +44,12 @@ public class Coche {
         }
         return imagen;
     }    
-
+    public int puntoMedioX(){
+        return (x+ancho/2);
+    }
+    public int puntoMedioY(){
+        return (y+alto/2);
+    }
     public int getX() {
         return x;
     }

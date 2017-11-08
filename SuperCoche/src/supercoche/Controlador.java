@@ -35,6 +35,7 @@ public Controlador(){
         if(ke.getKeyCode()==KeyEvent.VK_RIGHT){
             model.moverDerecha();
         }
+        view.setContador(model.getContador());
         model.comprobar();
         view.setCoche(model.getCoche());
         view.setGas(model.getGas());
