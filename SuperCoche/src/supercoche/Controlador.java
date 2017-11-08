@@ -23,6 +23,9 @@ public Controlador(){
 
     @Override
     public void keyPressed(KeyEvent ke) {
+        if(ke.getKeyCode()==KeyEvent.VK_ESCAPE){
+            System.exit(0);
+        }
         if(ke.getKeyCode()==KeyEvent.VK_UP){
             model.moverArriba();
         }
