@@ -17,16 +17,18 @@ import javax.imageio.ImageIO;
 public class Herramientas {
     private Image imgHerramientas;
     private Modelo model;
-    private int alto=10,ancho=10;
+    private int alto=70,ancho=70;
     private int x,y;
-    public Herramientas() {
+    
+    public Herramientas(Modelo model) {
         imgHerramientas=this.leerImagen();
-        this.x=(int)(Math.random()*600-50);
-        this.y=(int)(Math.random()*600-50);
+        this.model=model;
+        this.x=(int)(Math.random()*1020);
+        this.y=(int)(Math.random()*520);
     }
     
     public Image leerImagen(){
-        URL url=this.getClass().getResource("../imagenes/tools.png");
+        URL url=this.getClass().getResource("/imagenes/tools.png");
         Image imagen=null;
         try {
             imagen=ImageIO.read(url);

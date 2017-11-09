@@ -13,8 +13,9 @@ private Modelo model;
 private Vista view;
 public Controlador(){
     model=new Modelo();
-    view=new Vista(model.getCoche(),model.getHer(),model.getGas());
+    view=new Vista(model.getCoche(),model.getGas());
     view.addKeyListener(this);
+    view.setConos(model.getConos());
 }
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -23,9 +24,6 @@ public Controlador(){
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        if(ke.getKeyCode()==KeyEvent.VK_ESCAPE){
-            System.exit(0);
-        }
         if(ke.getKeyCode()==KeyEvent.VK_UP){
             model.moverArriba();
         }
@@ -39,10 +37,9 @@ public Controlador(){
             model.moverDerecha();
         }
         view.setContador(model.getContador());
-        model.comprobar();
+        model.comprobar(ke.getKeyCode());
         view.setCoche(model.getCoche());
         view.setGas(model.getGas());
-        view.setHer(model.getHer());
         view.repaint();
     }
 

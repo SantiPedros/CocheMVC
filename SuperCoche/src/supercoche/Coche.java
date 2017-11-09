@@ -19,11 +19,11 @@ import static supercoche.Modelo.ANCHOGAME;
  */
 public class Coche {
     private Image imgCoche;
-    private int ancho=100;
-    private int alto=80;
+    private int ancho=190;
+    private int alto=190;
     private int x;
     private int y;
-
+    
     public void setX(int x) {
         this.x += x;
     }
@@ -63,6 +63,7 @@ public class Coche {
     }
     public void dibujar(Graphics g){
         g.drawImage(imgCoche,x,y,ancho,alto,null);
+    
     }
     
 }

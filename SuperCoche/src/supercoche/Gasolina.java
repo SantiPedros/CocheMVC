@@ -19,11 +19,11 @@ public class Gasolina {
     private Image imgGasolina;
     private Modelo model;
     private int x,y;
-    private int ancho=20,alto=20;
+    private int ancho=70,alto=70;
     public Gasolina() {
         imgGasolina=this.leerImagen();
-        this.x=(int)(Math.random()*600-50);
-        this.y=(int)(Math.random()*600-50);
+        this.x=(int)(Math.random()*1020)+70;
+        this.y=(int)(Math.random()*520)+70;
     }
     public Image leerImagen(){
         URL url=this.getClass().getResource("../imagenes/fuel.jpg");

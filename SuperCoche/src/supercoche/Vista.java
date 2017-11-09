@@ -12,8 +12,11 @@
 package supercoche;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Vista extends JFrame{
@@ -23,16 +26,15 @@ public class Vista extends JFrame{
     private Font font;
     private String msg="";
     private Coche coche;
-    private Herramientas her;
+    private ArrayList<Herramientas> conos;
     private Gasolina gas;
 
-      Vista(Coche coche,Herramientas her, Gasolina gas){
+      Vista(Coche coche, Gasolina gas){
         this.coche=coche;
-        this.her=her;
         this.gas=gas;
         this.ancho=ancho;
         this.alto=alto;
-        this.setBounds(300, 90, 600, 600);
+        this.setBounds(60, 60, 1200, 700);
         this.setUndecorated(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         font= new Font("Arial", Font.BOLD, 20);
@@ -42,14 +44,26 @@ public class Vista extends JFrame{
     @Override
     public void paint(Graphics g){
         g.setColor(Color.blue);
-        g.fillRect(0, 0, 600, 600);
+        g.fillRect(0, 0, 1200, 700);
         g.setColor(Color.WHITE);
        // g.drawRect(xRect, yRect, 30, 30);
-        g.setFont(font);   
-        g.drawString(contador,400, 300);
+        Dimension tam=getSize();
+        ImageIcon imagen=new ImageIcon(getClass().getResource("/imagenes/parking.png"));
+        g.drawImage(imagen.getImage(), 0, 0, tam.width,tam.height,null);
+        g.setFont(font);
+        
+        g.drawRect(1000, 90, 120, 50);
+        g.setColor(Color.blue);
+        g.fillRect(1000, 90, 120, 50);
+        g.setColor(Color.yellow);
+        g.drawString(contador,1010, 120);
+        
         g.drawString(msg,400, 200);
         coche.dibujar(g);
-        her.dibujar(g);
+        for(int i=0;i<conos.size();i++){
+            conos.get(i).dibujar(g);
+        }
+        
         gas.dibujar(g);
     }
     //funcion para el marcador del juego.
@@ -63,11 +77,11 @@ public class Vista extends JFrame{
     public void setCoche(Coche coche) {
         this.coche = coche;
     }
-    
-    public void setHer(Herramientas her) {
-        this.her = her;
-    }
 
+    public void setConos(ArrayList<Herramientas> conos) {
+        this.conos = conos;
+    }
+    
     public void setGas(Gasolina gas) {
         this.gas = gas;
     }
